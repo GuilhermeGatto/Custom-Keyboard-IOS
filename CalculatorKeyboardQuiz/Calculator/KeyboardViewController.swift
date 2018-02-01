@@ -17,7 +17,7 @@ class KeyboardViewController: UIInputViewController {
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
-        // Add custom view sizing constraints here
+        nextKeyboardButton.addTarget(self, action: #selector(UIInputViewController.advanceToNextInputMode), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -32,8 +32,8 @@ class KeyboardViewController: UIInputViewController {
         
         let calculatorNib = UINib(nibName: "Calculator", bundle: nil)
         calculatorView = calculatorNib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        calculatorView.frame.size = view.frame.size
         view.addSubview(calculatorView)
-        view.backgroundColor = calculatorView.backgroundColor
         
         
     }
