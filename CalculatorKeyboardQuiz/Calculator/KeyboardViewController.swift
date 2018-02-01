@@ -12,6 +12,7 @@ class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
     
+    var calculatorView: UIView!
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -21,9 +22,21 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadInterface()
     }
     
+    
+    
+    
+    func loadInterface(){
+        
+        let calculatorNib = UINib(nibName: "Calculator", bundle: nil)
+        calculatorView = calculatorNib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        view.addSubview(calculatorView)
+        view.backgroundColor = calculatorView.backgroundColor
+        
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
